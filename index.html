@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8">
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+            <link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+            <link rel="stylesheet" type="text/css" href="css/main.css">
+            <link href='https://fonts.googleapis.com/css?family=Caveat' rel='stylesheet'>
+            
+            <title>vkeys</title>
+            <link rel="icon" href="images/a.png" type="css" />
+            <meta name="theme-color" content="#FFFFFF" />
+        </head>
+
+        <script>
+
+        //Visual Keys
+
+        function keys(x,imageSrc){
+            soundFile = ["cs.wav", "ds.wav", "fs.wav", "gs.wav", "as.wav", "c.wav","d.wav", "e.wav", "f.wav", "g.wav", "a.wav", "b.wav"]
+            var timer = 0;
+            var note  = new Audio(soundFile[x]);
+            if (note.paused){
+                document.getElementById("soundImg").src=imageSrc;
+                note.play();
+            }else{
+                note.pause();
+                note.currentTime = 0;
+                timer = 1;
+                if (timer = 1){
+                    document.getElementById("soundImg").src=imageSrc;
+                    note.play(); 
+                }
+            }
+        }
+
+        //Change App Border         
+
+        function chbg(color) {
+            document.getElementById('borders').style.borderColor = color;
+        }
+
+        //Info Pop Up         
+
+        function popUp(){
+            var x = document.getElementById('infoPopUp');
+            x.style.display = 'block';
+        }
+
+        function popDown(){
+            var x = document.getElementById('infoPopUp');
+            x.style.display = 'none';
+        }
+
+        </script>
+        
+        <body>
+
+        <style>
+
+            @import url('https://fonts.googleapis.com/css?family=Major+Mono+Display');
+            @import url('https://fonts.googleapis.com/css?family=Inder');
+
+            html{
+                overflow-x: hidden;
+                /*overflow-y: hidden;*/
+            }
+
+/*This is the Background******************/
+
+            body {
+                width: 100wh;
+                height: 90vh;
+                color: #fff;
+                background: linear-gradient(-45deg, #ffffff, #ccccff, #9999ff, #000066);
+                background-size: 400% 400%;
+                -webkit-animation: Gradient 15s ease infinite;
+                -moz-animation: Gradient 15s ease infinite;
+                animation: Gradient 15s ease infinite;
+            }
+
+            @-webkit-keyframes Gradient {
+                0% {
+                    background-position: 0% 50%
+                }
+                50% {
+                    background-position: 100% 50%
+                }
+                100% {
+                    background-position: 0% 50%
+                }
+            }
+
+            @-moz-keyframes Gradient {
+                0% {
+                    background-position: 0% 50%
+                }
+                50% {
+                    background-position: 100% 50%
+                }
+                100% {
+                    background-position: 0% 50%
+                }
+            }
+
+            @keyframes Gradient {
+                0% {
+                    background-position: 0% 50%
+                }
+                50% {
+                    background-position: 100% 50%
+                }
+                100% {
+                    background-position: 0% 50%
+                }
+            }
+
+/*Container for App*****************************/
+
+            .shadow{
+                box-shadow: 0 4px 8px 0 rgba(0, 0, 100, 0.4), 0 6px 20px 0 rgba(0, 0, 100, 0.2);
+            }
+            
+            .contain{
+                background-color: rgba(0, 255, 255, 1);
+                position: absolute;
+                width:70%;
+                height:auto;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 20px;
+                border-color: white;
+                border-width:8px;
+                border-style: solid;
+            }
+
+            @media (min-width: 576px) { 
+                .contain{
+                    width:65%;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .contain{
+                    width:60%;
+                }
+            }
+
+            @media (min-width: 992px) { 
+                .contain{
+                    width:55%;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .contain{
+                    width:50%;
+                }
+            }
+
+/*This is for the image of the Note************/
+
+            .soundImg{
+                display: block;
+                margin-left: auto;
+                margin-right: auto;
+                width:65%;
+                height:auto;
+                border-radius: 40px;
+                margin-top:16px;
+                margin-bottom:16px;
+                border-color: white;
+                border-width:8px;
+                border-style: solid;
+            }
+
+            @media (min-width: 576px) { 
+                .soundImg{
+                    width:55%;
+                }
+            }
+
+            @media (min-width: 768px) {
+                .soundImg{
+                    width:45%;
+                }
+            }
+
+            @media (min-width: 992px) { 
+                .soundImg{
+                    width:35%;
+                }
+            }
+
+            @media (min-width: 1200px) {
+                .soundImg{
+                    width:30%;
+                }
+            } 
+
+/*Piano Keys*************************/
+
+            .pianoContain{
+                padding: 16px;
+            }
+
+            button:focus {outline:0;}
+
+            .column {
+                border-radius: 20px;
+                float: left;
+                width: 5%;
+                padding:10px;
+                height:100px;
+                font-family:'Major Mono Display';
+                font-weight:bold;
+                font-size:12px;
+                cursor: pointer;
+
+                -webkit-user-select: none; /* Safari */        
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+/Edge */
+                user-select: none; /* Standard */
+            }
+
+/* Clear floats after the columns *****************/
+            .row:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+
+            .row{
+                text-align: center;
+                display:flex;
+                justify-content:center;
+            }
+
+/*Whole Keys***************************************/
+
+            .wholeCol{
+                background-color: white;
+                color: black;
+                text-align: center;
+                margin:2px;
+            }
+
+            .wholeCol:active{
+                background-color: black;
+                color: white;
+                text-align: center;
+            }
+
+/*Sharp Keys*************************************/
+
+            .sharpCol{
+                background-color: black;
+                color: white;
+                text-align: center;
+                margin:2px;
+            }
+
+            .sharpCol:active{
+                background-color: white;
+                color: black;
+                text-align: center;
+            }
+
+/*Learn more*************************************/
+            #infoPopUp{
+                background-color: rgba(255, 255, 255, 1);
+                position: absolute;
+                width:100%;
+                height:100%;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                border-radius: 20px;
+                border-color: white;
+                border-width:8px;
+                border-style: solid;
+                text-align: center;
+                display: none;
+            }
+
+            #exitButton{
+                position:relative;
+                font-family:'Major Mono Display';
+                font-weight:bold;
+                font-size:12px;
+                border:none;
+                border-radius: 12px;
+                padding:8px;
+                background-color:white;
+                color:black;
+                float:right;
+
+                -webkit-user-select: none; /* Safari */        
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+/Edge */
+                user-select: none; /* Standard */
+            }
+
+            #exitButton:hover{
+                color: white;
+                cursor: pointer;
+                background-color: black;
+                border-color: black;
+            }
+
+            #learnMoreButton{
+                position:relative;
+                font-family:'Major Mono Display';
+                font-weight:bold;
+                font-size:12px;
+                border:none;
+                border-radius: 4px;
+                padding:8px;
+                background-color:white;
+                color:black;
+                margin-left: -4px;
+
+                -webkit-user-select: none; /* Safari */        
+                -moz-user-select: none; /* Firefox */
+                -ms-user-select: none; /* IE10+/Edge */
+                user-select: none; /* Standard */
+            }
+
+            #learnMoreButton:hover{
+                color: white;
+                cursor: pointer;
+                background-color: black;
+                border-color: black;
+            }
+
+            .infoText{
+                color:black;
+                padding: 25%;
+                font-family:'Inder';
+                font-size:12px;
+            }
+
+        </style>
+
+            <div id="borders" class="contain shadow">
+
+<!--Note Image------------------------------------------------------------>
+
+                <img id="soundImg" class="soundImg shadow" src="images/c.png" />
+                <button id="learnMoreButton" onclick="popUp()" onmouseover="chbg('black')" onmouseout="chbg('white')"> learn more</button>
+
+<!--Piano Keys------------------------------------------------------------>
+
+                <div class="pianoContain">
+
+<!--Sharps---------------------------------------------------------------->
+
+                <div class="row">
+
+                    <div onclick="keys(0,'images/cs.png')" class="column sharpCol shadow">
+                        <p>c#</p>
+                    </div>
+
+                    <div onclick="keys(1,'images/ds.png')" class="column sharpCol shadow">
+                        <p>d#</p>
+                    </div>
+
+                    <div class="column">
+                        <!--BLANK IMPORTANT!-->
+                    </div>
+
+                    <div onclick="keys(2,'images/fs.png')" class="column sharpCol shadow">
+                        <p>f#</p>
+                    </div>
+
+                    <div onclick="keys(3,'images/gs.png')" class="column sharpCol shadow">
+                        <p>g#</p>
+                    </div>
+
+                    <div onclick="keys(4,'images/as.png')" class="column sharpCol shadow">
+                        <p>a#</p>
+                    </div>
+
+                </div>
+
+<!--Wholes---------------------------------------------------------------->
+
+                    <div class="row">
+
+                        <div onclick="keys(5, 'images/c.png')" class="column wholeCol shadow">
+                            <p>c</p>
+                        </div>
+
+                        <div onclick="keys(6,'images/d.png')" class="column wholeCol shadow">
+                            <p>d</p>
+                        </div>
+
+                        <div onclick="keys(7,'images/e.png')" class="column wholeCol shadow">
+                            <p>e</p>
+                        </div>
+
+                        <div onclick="keys(8,'images/f.png')" class="column wholeCol shadow">
+                            <p>f</p>
+                        </div>
+
+                        <div onclick="keys(9,'images/g.png')" class="column wholeCol shadow">
+                            <p>g</p>
+                        </div>
+
+                        <div onclick="keys(10,'images/a.png')" class="column wholeCol shadow">
+                            <p>a</p>
+                        </div>
+
+                        <div onclick="keys(11,'images/b.png')" class="column wholeCol shadow">
+                            <p>b</p>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div id="infoPopUp">
+                    <button id="exitButton" onclick="popDown()">X</button>
+                    <p class="infoText">
+                        The Images in this app are taken from a machine called a CymaScope. A CymaScope shows you a visual representation of soundwaves.<br><br>
+                        To learn even more <a href="https://www.cymascope.com/cyma_research/musicology.html">Click Here</a> to visit the developers website!
+                        There you can download an app to get even more immersed into this fascinating new tech!
+                    </p>
+                    
+                </div>
+
+            </div>
+
+        </body>
+
+
+
