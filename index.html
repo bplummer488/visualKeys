@@ -17,19 +17,21 @@
 
         //Visual Keys
 
-        function keys(x,imageSrc){
+        var c = new Audio("c.wav");
+
+        c.preload()
+
+        function keys(x){
             soundFile = ["cs.wav", "ds.wav", "fs.wav", "gs.wav", "as.wav", "c.wav","d.wav", "e.wav", "f.wav", "g.wav", "a.wav", "b.wav"]
             var timer = 0;
             var note  = new Audio(soundFile[x]);
             if (note.paused){
-                document.getElementById("soundImg").src=imageSrc;
                 note.play();
             }else{
                 note.pause();
                 note.currentTime = 0;
                 timer = 1;
                 if (timer = 1){
-                    document.getElementById("soundImg").src=imageSrc;
                     note.play(); 
                 }
             }
@@ -159,46 +161,6 @@
                     width:50%;
                 }
             }
-
-/*This is for the image of the Note************/
-
-            .soundImg{
-                display: block;
-                margin-left: auto;
-                margin-right: auto;
-                width:65%;
-                height:auto;
-                border-radius: 40px;
-                margin-top:16px;
-                margin-bottom:16px;
-                border-color: white;
-                border-width:8px;
-                border-style: solid;
-            }
-
-            @media (min-width: 576px) { 
-                .soundImg{
-                    width:55%;
-                }
-            }
-
-            @media (min-width: 768px) {
-                .soundImg{
-                    width:45%;
-                }
-            }
-
-            @media (min-width: 992px) { 
-                .soundImg{
-                    width:35%;
-                }
-            }
-
-            @media (min-width: 1200px) {
-                .soundImg{
-                    width:30%;
-                }
-            } 
 
 /*Piano Keys*************************/
 
@@ -338,7 +300,7 @@
 
             .infoText{
                 color:black;
-                padding: 25%;
+                padding: 5%;
                 font-family:'Inder';
                 font-size:12px;
             }
@@ -348,8 +310,6 @@
             <div id="borders" class="contain shadow">
 
 <!--Note Image------------------------------------------------------------>
-
-                <img id="soundImg" class="soundImg shadow" src="images/c.png" />
                 <button id="learnMoreButton" onclick="popUp()" onmouseover="chbg('black')" onmouseout="chbg('white')"> learn more</button>
 
 <!--Piano Keys------------------------------------------------------------>
@@ -360,11 +320,11 @@
 
                     <div class="row">
 
-                        <div onclick="keys(0,'images/cs.png')" class="column sharpCol shadow">
+                        <div onclick="keys(0)" class="column sharpCol shadow">
                             <p>c#</p>
                         </div>
 
-                        <div onclick="keys(1,'images/ds.png')" class="column sharpCol shadow">
+                        <div onclick="keys(1)" class="column sharpCol shadow">
                             <p>d#</p>
                         </div>
 
@@ -372,15 +332,15 @@
                             <!--BLANK IMPORTANT!-->
                         </div>
 
-                        <div onclick="keys(2,'images/fs.png')" class="column sharpCol shadow">
+                        <div onclick="keys(2)" class="column sharpCol shadow">
                             <p>f#</p>
                         </div>
 
-                        <div onclick="keys(3,'images/gs.png')" class="column sharpCol shadow">
+                        <div onclick="keys(3)" class="column sharpCol shadow">
                             <p>g#</p>
                         </div>
 
-                        <div onclick="keys(4,'images/as.png')" class="column sharpCol shadow">
+                        <div onclick="keys(4)" class="column sharpCol shadow">
                             <p>a#</p>
                         </div>
 
@@ -390,31 +350,31 @@
 
                     <div class="row">
 
-                        <div onclick="keys(5, 'images/c.png')" class="column wholeCol shadow">
+                        <div onclick="keys(5)" class="column wholeCol shadow">
                             <p>c</p>
                         </div>
 
-                        <div onclick="keys(6,'images/d.png')" class="column wholeCol shadow">
+                        <div onclick="keys(6)" class="column wholeCol shadow">
                             <p>d</p>
                         </div>
 
-                        <div onclick="keys(7,'images/e.png')" class="column wholeCol shadow">
+                        <div onclick="keys(7)" class="column wholeCol shadow">
                             <p>e</p>
                         </div>
 
-                        <div onclick="keys(8,'images/f.png')" class="column wholeCol shadow">
+                        <div onclick="keys(8)" class="column wholeCol shadow">
                             <p>f</p>
                         </div>
 
-                        <div onclick="keys(9,'images/g.png')" class="column wholeCol shadow">
+                        <div onclick="keys(9)" class="column wholeCol shadow">
                             <p>g</p>
                         </div>
 
-                        <div onclick="keys(10,'images/a.png')" class="column wholeCol shadow">
+                        <div onclick="keys(10)" class="column wholeCol shadow">
                             <p>a</p>
                         </div>
 
-                        <div onclick="keys(11,'images/b.png')" class="column wholeCol shadow">
+                        <div onclick="keys(11)" class="column wholeCol shadow">
                             <p>b</p>
                         </div>
 
@@ -425,9 +385,7 @@
                 <div id="infoPopUp">
                     <button id="exitButton" onclick="popDown()">X</button>
                     <p class="infoText">
-                        The Images in this app are taken from a machine called a CymaScope. A CymaScope shows you a visual representation of soundwaves.<br><br>
-                        To learn even more <a href="https://www.cymascope.com/cyma_research/musicology.html">Click Here</a> to visit the developers website!
-                        There you can download an app to get even more immersed into this fascinating new tech!
+                        vKeys is a project I created to see what it was like working with sound in Javascript.
                     </p>
                     
                 </div>
